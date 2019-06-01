@@ -10,11 +10,11 @@ public class Task2 {
         System.out.println("Введите длину массива");
         count=scanner.nextInt();
 
-            for (int i=0; i< count;i++){
-             System.out.println("Введите числа "+(i+1));
+        for (int i=0; i< count;i++){
+            System.out.println("Введите число "+(i+1));
             int number=scanner.nextInt();
             sum = sum + number;
-          }
+        }
 
         System.out.println("Total:" +sum);
     }
