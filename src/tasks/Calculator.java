@@ -25,58 +25,73 @@ public class Calculator {
 //        calc(a, b, operator);
     }
 
-    private static void calcLine(String questions) {
+    private static void calcLine(String question) {
         int a, b;
-        boolean type = true;
+        boolean type = true, a1=true, b1=true;
+
 
         // Addition statement
-        if (questions.indexOf('+') != -1) { // Checking the statement:  Is there addition operator?
+        if (question.indexOf('+') != -1) { // Checking the statement:  Is there addition operator?
             try {
-                a = Integer.parseInt(questions.substring(0, questions.indexOf('+')));
+                a = Integer.parseInt(question.substring(0, question.indexOf('+')));
             } catch (NumberFormatException ex) {
                 type = false;
-                a = romeToDigit(questions.substring(0, questions.indexOf('+')));
+                a1=false;
+                a = romeToDigit(question.substring(0, question.indexOf('+')));
             }
             try {
-                b = Integer.parseInt(questions.substring(questions.indexOf('+') + 1, questions.length()));
+                b = Integer.parseInt(question.substring(question.indexOf('+') + 1, question.length()));
             } catch (NumberFormatException ex) {
                 type = false;
-                b = romeToDigit(questions.substring(questions.indexOf('+') + 1, questions.length()));
+                b1=false;
+                b = romeToDigit(question.substring(question.indexOf('+') + 1, question.length()));
             }
 
             if (1 <= a && a <= 10 && 1 <= b && b <= 10) {
-                if (type) {
-                    System.out.println("Total: " + (a + b));
-                } else {
-                    System.out.println("Total: " + DecToRoman.printRoman((a+b)));
+                if (a1 == b1){
+                    if (type) {
+                        System.out.println("Total: " + (a + b));
+                    } else {
+                        System.out.println("Total: " + DecToRoman.printRoman((a+b)));
+                    }
+                } else{
+                    System.out.println("Numerals should be only arabic or Roman");
                 }
+
+
             } else {
                 System.out.println("Numeral is more than required. Please enter numbers between 1 and 10");
             }
-
         }
 
         //Substraction statement
-        if (questions.indexOf('-') != -1) { // Checking the statement:  Is there substraction operator?
+        if (question.indexOf('-') != -1) { // Checking the statement:  Is there substraction operator?
             try {
-                a = Integer.parseInt(questions.substring(0, questions.indexOf('-')));
+                a = Integer.parseInt(question.substring(0, question.indexOf('-')));
             } catch (NumberFormatException ex) {
                 type = false;
-                a = romeToDigit(questions.substring(0, questions.indexOf('-')));
+                a1=false;
+                a = romeToDigit(question.substring(0, question.indexOf('-')));
             }
             try {
-                b = Integer.parseInt(questions.substring(questions.indexOf('-') + 1, questions.length()));
+                b = Integer.parseInt(question.substring(question.indexOf('-') + 1, question.length()));
             } catch (NumberFormatException ex) {
                 type = false;
-                b = romeToDigit(questions.substring(questions.indexOf('-') + 1, questions.length()));
+                b1 = false;
+                b = romeToDigit(question.substring(question.indexOf('-') + 1, question.length()));
             }
 
             if (1 <= a && a <= 10 && 1 <= b && b <= 10) {
-                if (type) {
-                    System.out.println("Total: " + (a - b));
-                } else {
-                    System.out.println("Total: " + DecToRoman.printRoman((a-b)));
+                if (a1 == b1) {
+                    if (type) {
+                        System.out.println("Total: " + (a - b));
+                    } else {
+                        System.out.println("Total: " + DecToRoman.printRoman((a-b)));
+                    }
+                } else{
+                    System.out.println("Numerals should be only arabic or Roman");
                 }
+
             } else {
                 System.out.println("Numeral is more than required. Please enter numbers between 1 and 10");
             }
@@ -84,26 +99,33 @@ public class Calculator {
         }
 
         //Multiplication statement
-        if (questions.indexOf('*') != -1) { // Checking the statement:  Is there multiplication operator?
+        if (question.indexOf('*') != -1) { // Checking the statement:  Is there multiplication operator?
             try {
-                a = Integer.parseInt(questions.substring(0, questions.indexOf('*')));
+                a = Integer.parseInt(question.substring(0, question.indexOf('*')));
             } catch (NumberFormatException ex) {
                 type = false;
-                a = romeToDigit(questions.substring(0, questions.indexOf('*')));
+                a1 = false;
+                a = romeToDigit(question.substring(0, question.indexOf('*')));
             }
             try {
-                b = Integer.parseInt(questions.substring(questions.indexOf('*') + 1, questions.length()));
+                b = Integer.parseInt(question.substring(question.indexOf('*') + 1, question.length()));
             } catch (NumberFormatException ex) {
                 type = false;
-                b = romeToDigit(questions.substring(questions.indexOf('*') + 1, questions.length()));
+                b1 = false;
+                b = romeToDigit(question.substring(question.indexOf('*') + 1, question.length()));
             }
 
             if (1 <= a && a <= 10 && 1 <= b && b <= 10) {
-                if (type) {
-                    System.out.println("Total: " + (a * b));
+                if (a1 == b1){
+                    if (type) {
+                        System.out.println("Total: " + (a * b));
+                    } else {
+                        System.out.println("Total: " + DecToRoman.printRoman((a*b)));
+                    }
                 } else {
-                    System.out.println("Total: " + DecToRoman.printRoman((a*b)));
+                    System.out.println("Numerals should be only arabic or Roman");
                 }
+
             } else {
                 System.out.println("Numeral is more than required. Please enter numbers between 1 and 10");
             }
@@ -111,26 +133,33 @@ public class Calculator {
         }
 
         //Division statement
-        if (questions.indexOf('/') != -1) { // Checking the statement:  Is there division operator?
+        if (question.indexOf('/') != -1) { // Checking the statement:  Is there division operator?
             try {
-                a = Integer.parseInt(questions.substring(0, questions.indexOf('/')));
+                a = Integer.parseInt(question.substring(0, question.indexOf('/')));
             } catch (NumberFormatException ex) {
                 type = false;
-                a = romeToDigit(questions.substring(0, questions.indexOf('/')));
+                a1 = false;
+                a = romeToDigit(question.substring(0, question.indexOf('/')));
             }
             try {
-                b = Integer.parseInt(questions.substring(questions.indexOf('/') + 1, questions.length()));
+                b = Integer.parseInt(question.substring(question.indexOf('/') + 1, question.length()));
             } catch (NumberFormatException ex) {
                 type = false;
-                b = romeToDigit(questions.substring(questions.indexOf('/') + 1, questions.length()));
+                b1 = false;
+                b = romeToDigit(question.substring(question.indexOf('/') + 1, question.length()));
             }
 
             if (1 <= a && a <= 10 && 1 <= b && b <= 10) {
-                if (type) {
-                    System.out.println("Total: " + (a / b));
+                if (a1 == b1){
+                    if (type) {
+                        System.out.println("Total: " + (a / b));
+                    } else {
+                        System.out.println("Total: " + DecToRoman.printRoman((a/b)));
+                    }
                 } else {
-                    System.out.println("Total: " + DecToRoman.printRoman((a/b)));
+                    System.out.println("Numerals should be only arabic or Roman");
                 }
+
             } else {
                 System.out.println("Numeral is more than required. Please enter numbers between 1 and 10");
             }
