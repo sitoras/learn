@@ -154,7 +154,7 @@ public class Calculator {
         return -1;
     }
 
-    private static void calc(int a, int b, String operator) {
+    /* private static void calc(int a, int b, String operator) {
         if (operator.equals("+")) {
             System.out.println("Total: " + (a + b));
         }
@@ -170,6 +170,6 @@ public class Calculator {
         if (operator.equals("*")) {
             System.out.println("Total: " + (a * b));
         }
-    }
+    }*/
 
 }
